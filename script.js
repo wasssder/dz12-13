@@ -6,13 +6,13 @@ let button1 = document.querySelector('.button1')
 let start = document.querySelector('#start')
 let ar = ['red', 'blue', 'green', 'black', 'pink', 'yellow', 'brown'];
 let words = ['apple', 'banana', 'orange', 'pear', 'pineapple'];
+let i = 0;
 
 class Hamster {
     constructor() {
         this.y = '510px';
         this.x = Math.floor(Math.random() * 900 + 10) + 'px';
         this.background = ar[Math.floor(Math.random() * ar.length)]
-
         this.food = [];
     }
 }
@@ -42,17 +42,17 @@ const starting = () => {
             if (currentY <= 0) {
                 clearInterval(interval)
                 zoo[index].food.push(words[Math.floor(Math.random() * words.length)])
+                zoo.forEach( (el, i) => {
+                    if (el.food.length < 1) arr[i].remove()
+                  })
             }
-
         })
     }, 200)
 }
 
 start.addEventListener('click', starting)
 
-if (zoo[index].food.length < 1) {
-    slice.zoo[index]
-}
+
 
 
 
